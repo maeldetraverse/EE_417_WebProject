@@ -1,0 +1,63 @@
+/*******************************
+**    MOBILE/TABLET STYLING
+********************************/
+
+
+.mobile-active{
+    transform: translateX(0%);
+    transition: 0.25s;
+}
+
+@media screen and (max-width: 1024px){
+    .mobile-btn{
+        display: flex;
+        margin-right: 30px;
+    }
+
+    nav{
+        position: absolute;
+        top: 70px;
+        transform: translate(100%);
+        width: 100%;
+    }
+
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li{
+        width: 100%;
+        margin-top: 0;
+        border: none;
+        border-top: 1px solid white;
+    }
+
+    nav ul li:first-child{
+        margin-top: 10px;
+    }
+
+    nav ul li:hover{
+        border: 1px solid white;
+        border-radius: 0;
+        background-color: #379683;
+    }
+
+    nav ul ul li
+    {
+        display: none;
+    }
+
+    #login-btn{
+        background-color: #5cdb95;
+        border: 1px solid white;
+        border-radius: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    #login-btn:hover{
+        background-color: #379683;
+    }
+}

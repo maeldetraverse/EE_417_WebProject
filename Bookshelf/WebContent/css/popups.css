@@ -1,0 +1,166 @@
+.popup{
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content{
+    margin: auto;
+    margin-top: 100px;
+    width: 50%;
+    text-align: center;
+    background-color: #5cdb95;
+    padding: 25px;
+    height: 160px;
+    border-radius: 15px;
+}
+
+.close-btn{
+    float: right;
+    margin-top: -20px;
+    margin-right: -10px;
+    font-size: 32px;
+    font-weight: 800;
+    transition: 0.15s;
+}
+
+.close-btn:hover, .close-btn:focus{
+    text-decoration: none;
+    cursor: pointer;
+    color: wheat;
+}
+
+.popup h1, p{
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup #email{
+    width: 50%;
+    padding: 5px;
+    padding-left: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+    outline: none;
+    transition: 0.25s;
+}
+
+.popup #email:focus{
+    width: 60%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.popup input[type="submit"]{
+    background-color: #05386b;
+    color: #edf5e1;
+    padding: 10px;
+    border-radius: 15px;
+    border: 3px solid #5cdb95;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.popup input[type="submit"]:hover{
+    opacity: 0.7;
+}
+
+
+/* TOGGLE DISPLAY IN JS */
+#newsletter{
+    display: none; /* display: block */
+}
+
+#basket{
+    display: none;
+}
+
+#pay-popup{
+    display: none;
+}
+
+/* MY BASKET POPUP */
+#pay-popup .popup-content{
+    width: 400px;
+    height: 300px;
+    background-color: #edf5e1;
+}
+
+#pay-popup .pay-form{
+    display: flex;
+    flex-direction: column;
+}
+
+#pay-popup label{
+    text-align: left;
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#pay-popup input{
+    margin-bottom: 15px;
+    border: 1px solid #5cdb95;
+    padding: 5px;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#pay-popup input:focus{
+    font-size: 16px;
+    background-color: #5cdb95;
+}
+
+#pay-popup #expiry, #cvv{
+    width: 60px;
+    margin: 10px;
+    text-align: center;
+}
+
+#pay-popup input[type="submit"]{
+    margin: auto;
+    margin-top: 20px;
+    width: 200px;
+    background-color: #05386b;
+}
+
+#pay-popup #pay-total{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+/* MOBILE STYLING */
+
+@media screen and (max-width:1024px){
+    body{
+        overflow-x: hidden;
+    }
+    .popup-content{
+        height: auto;
+    }
+
+    .popup #email{
+        width: 180px;
+    }
+
+    .popup #email:focus{
+        padding: 5px;
+        padding-left: 10px;
+        width: 180px;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    #pay-popup .popup-content{
+        margin-top: 50px;
+        width: 300px;
+        height: 300px;
+    }
+}
