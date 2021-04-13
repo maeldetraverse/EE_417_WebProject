@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
     <link rel="stylesheet" href="css/base-mobile.css">
     <link rel="stylesheet" href="css/popups.css">
     <script defer src="js/nav.js"></script>
-    <title>BookShelf | Template Page</title>
+    <title>BookShelf | Buy Books Online</title>
 </head>
+
 <body>
 
     <!-- HEADER AND NAVIGATION -->

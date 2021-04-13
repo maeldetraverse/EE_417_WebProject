@@ -18,7 +18,6 @@
     <title>BookShelf | Buy Books Online</title>
 </head>
 
-
 <body>
 
     <!-- HEADER AND NAVIGATION -->
