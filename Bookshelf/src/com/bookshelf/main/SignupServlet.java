@@ -22,7 +22,7 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//create manager for local database
-		DatabaseManager localDB = new DatabaseManager("localhost", "3306", "bookshelf", "root", "password");
+		DatabaseManagerOld localDB = new DatabaseManagerOld("localhost", "3306", "bookshelf", "root", "password");
 		
 		//create user from request data
 		User newUser = new User(

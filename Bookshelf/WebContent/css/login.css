@@ -95,3 +95,11 @@
         width: 190px;
     }
 }
+
+.success{
+	border: 5px solid green;
+}
+
+.failure{
+	border: 5px solid red;
+}
