@@ -92,6 +92,10 @@
             <p><em><small>Fields marked * are required</small></em></p>
             <input type="submit" value="Sign-Up">
         </form>
+        
+        <!-- SUCCESS/FAIL NOTIFICATION -->
+        ${notification}
+        
     </section>
 
     <!-- FOOTER SECTION -->

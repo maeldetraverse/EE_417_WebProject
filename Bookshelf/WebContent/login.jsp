@@ -61,7 +61,7 @@
             <div><i class="fa fa-user"></i><input type="text" name="username" id="username" placeholder="Username"></div>
             <div><i class="fa fa-lock"></i><input type="password" name="password" id="password" placeholder="Password"></div>
             <input type="submit" value="Login">
-            <div>Don't have an account?<a href="signup.jsp">Sign-Up</a></div>
+            <div>Don't have an account?<a href="SignupServlet">Sign-Up</a></div>
         </form>
         
         <!-- SUCCESS/FAIL NOTIFICATION -->

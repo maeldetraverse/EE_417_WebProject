@@ -1,6 +1,8 @@
 package com.bookshelf.main;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,21 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	//GET response - return signup page
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//include form in response
-		request.getRequestDispatcher("index.jsp").include(request, response);
-		
+		response.setContentType("text/html");
+		request.getRequestDispatcher("signup.jsp").include(request, response);	
 	}
 	
 	//POST response - creates user from form data, adds user to database
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//create manager for local database
-		DatabaseManagerOld localDB = new DatabaseManagerOld("localhost", "3306", "bookshelf", "root", "password");
+		String notification;
 		
 		//create user from request data
-		User newUser = new User(
+		User u = new User(
 				request.getParameter("username"),
 				request.getParameter("password"),
 				request.getParameter("first_name"),
@@ -35,13 +35,26 @@ public class SignupServlet extends HttpServlet {
 				request.getParameter("address_postcode")
 				);
 		
+		//create manager for cloud database
+		DatabaseManager cloudDB = new DatabaseManager("ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com", "3306", "testdb", "ee417", "ee417");
+		
 		//if user with that username doesn't already exist in database - create user
-		if(localDB.getUser(newUser.getUsername()) == null) {
-			localDB.createUser(newUser);
+		try {
+			if(cloudDB.getUser(u.getUsername())==null) {
+				cloudDB.setUser(u);
+				notification = "<span class=\"success\">" + "Successfully added user " + u.getUsername() + "</span>";
+			}
+			else {
+				notification = "<span class=\"failure\">" + "Username or email already in use" + "</span>";
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			notification = "<span class=\"failure\">" + "Error: " + e.getMessage() + "</span>";
 		}
 		
-		//include form in response
-		request.getRequestDispatcher("index.jsp").include(request, response);	
+		//call GET with appropriate notification
+		request.setAttribute("notification", notification);
+		doGet(request,response);
 	}
 
 }
