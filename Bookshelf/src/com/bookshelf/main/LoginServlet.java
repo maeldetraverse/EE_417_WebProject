@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
 	//GET response - return login page
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		request.getRequestDispatcher("login.jsp").include(request, response);	
+		request.getRequestDispatcher("login.jsp").include(request, response);
 	}
 	
 	//POST response - validate user credentials against database
