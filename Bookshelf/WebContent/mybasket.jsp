@@ -30,21 +30,16 @@
         <nav>
             <ul>
                 <li><a href="index.jsp">Home</a></li>
-                <li><a href="#">Classics</a>
+                <li><a href="BestsellersServlet">Bestsellers</a></li>
+                <li><a href="NonfictionServlet">Nonfiction</a>
+                </li>
+                <li><a href="FictionServlet">Fiction</a>
                     <ul>
-                        <li><a href="#">18th Century</a></li>
-                        <li><a href="#">19th Century</a></li>
-                        <li><a href="#">20th Century</a></li>
+                        <li><a href="ChildrensServlet">Children's</a></li>
+                        <li><a href="ClassicsServlet">Classics</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Poetry</a>
-                    <ul>
-                        <li><a href="#">Ronsard</a></li>
-                        <li><a href="#">Baudelaire</a></li>
-                        <li><a href="#">Hugo</a></li>
-                    </ul>
-                </li>
-                <li class="cart"><a href="#">Basket</a></li>
+                <li class="cart"><a href="#" onclick="submitForm()">Basket</a></li>
                 <% if (request.getSession().getAttribute("user") == null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>
