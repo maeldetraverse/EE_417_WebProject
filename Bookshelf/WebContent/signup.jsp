@@ -45,7 +45,11 @@
                     </ul>
                 </li>
                 <li class="cart"><a href="#">Basket</a></li>
-                <li id="login-btn"><a href="login.jsp">Login</a></li>
+                <% if (request.getSession().getAttribute("user") == null) { %>
+                	<li id="login-btn"><a href="LoginServlet">Login</a></li>
+                <% } else { %>
+                	<li id="login-btn"><a href="LogoutServlet">Logout</a></li>
+                <%} %>
             </ul>
         </nav>
     </header>

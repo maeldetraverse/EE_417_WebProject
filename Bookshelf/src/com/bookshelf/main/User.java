@@ -7,16 +7,16 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String address1;
-	private String addressPostcode;
+	private String address;
+	private String zipcode;
 	
 	public User( String username,
 			String password,
 			String firstName,
 			String lastName,
 			String email,
-			String address1,
-			String addressPostcode) {
+			String address,
+			String zipcode) {
 		
 		super();
 		this.username = username;
@@ -24,15 +24,15 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.address1 = address1;
-		this.addressPostcode = addressPostcode;
+		this.address = address;
+		this.zipcode = zipcode;
 	}
 	
 	//username
 	public String getUsername() {
 		return username;
 	}
-	public void setusernamename(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 	
@@ -40,7 +40,7 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-	public void setPasswordname(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	
@@ -48,7 +48,7 @@ public class User {
 	public String getFirstName() {
 		return firstName;
 	}
-	public void setFirstNamename(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 	
@@ -56,7 +56,7 @@ public class User {
 	public String getLastName() {
 	    return lastName;
 	}
-	public void setLastNamename(String lastName) {
+	public void setLastName(String lastName) {
 	    this.lastName = lastName;
 	}
 	
@@ -64,24 +64,24 @@ public class User {
 	public String getEmail() {
 	    return email;
 	}
-	public void setEmailname(String email) {
+	public void setEmail(String email) {
 	    this.email = email;
 	}
 	
-	//address1
-	public String getAddress1() {
-	    return address1;
+	//address
+	public String getAddress() {
+	    return address;
 	}
-	public void setAddress1(String address1) {
-	    this.address1 = address1;
+	public void setAddress(String address) {
+	    this.address = address;
 	}
 	
-	//addressPostcode
-	public String getAddressPostcode() {
-	    return addressPostcode;
+	//zipcode
+	public String getZipcode() {
+	    return zipcode;
 	}
-	public void setAddressPostcode(String addressPostcode) {
-	    this.addressPostcode = addressPostcode;
+	public void setZipcode(String zipcode) {
+	    this.zipcode = zipcode;
 	}
 
 }

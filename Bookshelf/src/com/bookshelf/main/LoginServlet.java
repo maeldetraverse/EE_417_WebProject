@@ -1,6 +1,8 @@
 package com.bookshelf.main;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,38 +14,42 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	//GET response - redirect to index
+	//GET response - return login page
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//response writer
 		response.setContentType("text/html");
-		
-		//include form in response
-		request.getRequestDispatcher("index.jsp").include(request, response);
-		
+		request.getRequestDispatcher("login.jsp").include(request, response);	
 	}
 	
-	//POST response - validate user credentials against database - redirect to index if successful
+	//POST response - validate user credentials against database
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//create manager for local database
-		DatabaseManager localDB = new DatabaseManager("localhost", "3306", "bookshelf", "root", "password");
+		//declare variables
+		User u;
+		String notification;
+		
+		//create manager for cloud database
+		DatabaseManager cloudDB = new DatabaseManager("ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com", "3306", "testdb", "ee417", "ee417");
 		
 		//validate username and password
-		User u = localDB.validateUserCredentials(request.getParameter("username"),request.getParameter("password"));
+		try {
+			u = cloudDB.validateUserCredentials(request.getParameter("username"),request.getParameter("password"));
+			if(u!=null) {
+				HttpSession session = request.getSession();
+				session.setMaxInactiveInterval(30*60);
+				session.setAttribute("user", u);
+				notification = "<span class=\"success\">" + "Successfully logged in as " + u.getUsername() + "</span>";
+			}
+			else {
+				notification = "<span class=\"failure\">" + " Username or password incorrect" + "</span>";
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			notification = "<span class=\"failure\">" + " Error: " + e.getMessage() + "</span>";
+		}
 		
-		//if successful - redirect to index
-		//else - TODO: error message pop up?
-		if(u!=null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", u.getUsername());
-			session.setMaxInactiveInterval(30*60);
-			request.getRequestDispatcher("index.jsp").include(request, response);
-		}
-		else {
-			request.getRequestDispatcher("login.jsp").include(request, response);
-			
-		}
+		//call GET with appropriate notification
+		request.setAttribute("notification", notification);
+		doGet(request,response);
 			
 	}
 

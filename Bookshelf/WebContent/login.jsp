@@ -43,7 +43,11 @@
                     </ul>
                 </li>
                 <li class="cart"><a href="#">Basket</a></li>
-                <li id="login-btn"><a href="#">Login</a></li>
+                <% if (request.getSession().getAttribute("user") == null) { %>
+                	<li id="login-btn"><a href="LoginServlet">Login</a></li>
+                <% } else { %>
+                	<li id="login-btn"><a href="LogoutServlet">Logout</a></li>
+                <%} %>
             </ul>
         </nav>
     </header>
@@ -59,6 +63,9 @@
             <input type="submit" value="Login">
             <div>Don't have an account?<a href="signup.jsp">Sign-Up</a></div>
         </form>
+        
+        <!-- SUCCESS/FAIL NOTIFICATION -->
+        ${notification}
 
     </section>
 
