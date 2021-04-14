@@ -23,7 +23,6 @@ public class LoginServlet extends HttpServlet {
 	//POST response - validate user credentials against database
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//declare variables
 		User u;
 		String notification;
 		
@@ -40,17 +39,16 @@ public class LoginServlet extends HttpServlet {
 				notification = "<span class=\"success\">" + "Successfully logged in as " + u.getUsername() + "</span>";
 			}
 			else {
-				notification = "<span class=\"failure\">" + " Username or password incorrect" + "</span>";
+				notification = "<span class=\"failure\">" + "Username or password incorrect" + "</span>";
 			}		
 		} catch (SQLException e) {
 			e.printStackTrace();
-			notification = "<span class=\"failure\">" + " Error: " + e.getMessage() + "</span>";
+			notification = "<span class=\"failure\">" + "Error: " + e.getMessage() + "</span>";
 		}
 		
 		//call GET with appropriate notification
 		request.setAttribute("notification", notification);
-		doGet(request,response);
-			
+		doGet(request,response);		
 	}
 
 }
