@@ -16,12 +16,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="fa fa-book" />
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/base-mobile.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/booklist.css">
     <link rel="stylesheet" href="css/popups.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
     <script defer src="js/index.js"></script>
+    <script src="js/cart.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
 
@@ -61,6 +62,8 @@
     <section class="main-content">
         <h1>${listTitle}</h1>
         <div class="container">
+        	
+        	<!-- Filter query form -->
         	<form action="BookListServlet" method="POST">
 				<label>Category</label>
 				<select name="category">
@@ -104,7 +107,7 @@
 			</sql:query>
 			
 			<!-- display results -->
-			<table border = "1" width = "100%">
+			<table>
 					<tr>
 						<th>ID</th>
 						<th>Title</th>
@@ -129,6 +132,9 @@
 							<td><c:out value = "${row.price}"/></td>
 							<td><img src= <c:out value = "${row.thumbnail_url}"/>></td>
 							<td><c:out value = "${row.stock}"/></td>
+							<td>
+								<button><i class="cart-button" class="fa fa-cart-plus"></i></button>
+							</td>	
 						</tr>
 					</c:forEach>
 			</table>
