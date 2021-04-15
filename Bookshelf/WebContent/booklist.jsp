@@ -133,7 +133,7 @@
 							<td><img src= <c:out value = "${row.thumbnail_url}"/>></td>
 							<td><c:out value = "${row.stock}"/></td>
 							<td>
-								<button><i class="cart-button" class="fa fa-cart-plus"></i></button>
+								<button class="cart-button"><i class="fa fa-cart-plus"></i></button>
 							</td>	
 						</tr>
 					</c:forEach>
