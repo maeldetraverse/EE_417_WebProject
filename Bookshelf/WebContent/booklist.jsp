@@ -49,7 +49,7 @@
                     </ul>
                 </li>
                 <li class="cart"><a href="#" onclick="submitForm()">Basket</a></li>
-                <% if (request.getSession().getAttribute("user") == null) { %>
+                <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>
                 	<li id="login-btn"><a href="LogoutServlet">Logout</a></li>
