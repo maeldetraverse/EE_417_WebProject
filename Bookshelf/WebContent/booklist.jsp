@@ -133,8 +133,18 @@
 							<td><img src= <c:out value = "${row.thumbnail_url}"/>></td>
 							<td><c:out value = "${row.stock}"/></td>
 							<td>
-								<button class="cart-button"><i class="fa fa-cart-plus"></i></button>
-							</td>	
+								<!-- Add to cart button -->
+								<!-- Attach relevant data as data attributes-->
+								<button
+								data-id="${row.id}"
+								data-title="${row.title}"
+								data-price="${row.price}"
+								data-thumbnail-url="${row.thumbnail_url}"
+								data-stock="${row.stock}"
+								class="cart-button">
+								<i class="fa fa-cart-plus"></i>
+								</button>
+							</td>
 						</tr>
 					</c:forEach>
 			</table>
