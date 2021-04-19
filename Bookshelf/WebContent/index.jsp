@@ -40,7 +40,7 @@
                         <li><a href="ClassicsServlet">Classics</a></li>
                     </ul>
                 </li>
-                <li class="cart"><a href="#" onclick="submitForm()">Basket</a></li>
+                <li class="cart"><a href="basket.jsp">Basket</a></li>
                 <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>

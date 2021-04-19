@@ -22,7 +22,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
     <script defer src="js/index.js"></script>
-    <script src="js/cart.js"></script>
+    <script src="js/basket-add.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
 
@@ -48,7 +48,7 @@
                         <li><a href="ClassicsServlet">Classics</a></li>
                     </ul>
                 </li>
-                <li class="cart"><a href="#" onclick="submitForm()">Basket</a></li>
+                <li class="cart"><a href="basket.jsp">Basket</a></li>
                 <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>
@@ -141,7 +141,7 @@
 								data-price="${row.price}"
 								data-thumbnail-url="${row.thumbnail_url}"
 								data-stock="${row.stock}"
-								class="cart-button">
+								class="basket-add-button">
 								<i class="fa fa-cart-plus"></i>
 								</button>
 							</td>
