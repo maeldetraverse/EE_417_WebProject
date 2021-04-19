@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//call GET with appropriate notification
 		request.setAttribute("notification", notification);
-		doGet(request,response);		
+		request.getRequestDispatcher("userinfo.jsp").include(request, response);
 	}
 
 }

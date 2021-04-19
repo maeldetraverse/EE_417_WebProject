@@ -17,7 +17,7 @@ public class CartServlet extends HttpServlet {
 		System.out.println("books: " + res);
 		res = res.replace("[", "");
 		JSONObject obj = new JSONObject(res);
-		request.getRequestDispatcher("mybasket.jsp").include(request, response);
+		request.getRequestDispatcher("basket.jsp").include(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

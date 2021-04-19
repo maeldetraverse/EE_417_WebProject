@@ -1,3 +1,4 @@
+<%@ page import="com.bookshelf.main.User"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="fa fa-book"/>
+    <link rel="shortcut icon" type="image/x-icon" href="fa fa-book" />
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/base-mobile.css">
-    <link rel="stylesheet" href="css/popups.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
+    <script defer src="js/signup.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
 
@@ -18,7 +22,7 @@
 
     <!-- HEADER AND NAVIGATION -->
     <header>
-        <div class="logo"><i class="fa fa-book"></i>  BookShelf</div>
+        <div class="logo"><i class="fa fa-book"></i> BookShelf</div>
         <button class="mobile-btn">
             <span></span>
             <span></span>
@@ -37,35 +41,37 @@
                     </ul>
                 </li>
                 <li class="cart"><a href="basket.jsp">Basket</a></li>
-                <% if(session.getAttribute("user")==null) { %>
-                	<li id="login-btn"><a href="LoginServlet">Login</a></li>
-                <% } else { %>
-                	<li><a href="userinfo.jsp">Account</a>
-                	<li id="login-btn"><a href="LogoutServlet">Logout</a></li>
-                <%} %>
+                <li><a href="#">Account</a>
+                <li id="login-btn"><a href="LogoutServlet">Logout</a></li>
             </ul>
-        </nav>
         </nav>
     </header>
 
+	<% User u = (User) session.getAttribute("user"); %>
     <!-- MAIN CONTENT OF PAGE -->
-    <section>
+    <section class="container">
+        <div class="signup-form">
+            <h1>Welcome to your Account</h1>
+            <label for="username">Username</label>
+            <p><%= u.getUsername() %></p>
 
-    </section>
+            <label for="firstname">First Name</label>
+            <p><%= u.getFirstName() %></p>
 
-    <!-- POPUPS -->
-    <!-- ADD TO BASKET POPUP -->
-    <div class="popup" id="basket">
-        <div class="popup-content">
-            <span class="close-btn">&times</span>
-            <h1>Added to Basket</h1>
-            <p>This item has been successfully added to your basket!</p>
-            <form action="#" class="newsletter">
-                <input type="submit" value="View Basket">
-                <input type="submit" value="Proceed to Checkout">
-            </form>
+            <label for="lastname">Last Name</label>
+            <p><%= u.getLastName() %></p>
+
+            <label for="email">Email</label>
+            <p><%= u.getEmail() %></p>
+
+            <label for="address">Address</label>
+            <p><%= u.getAddress() %></p>
+
+            <label for="zipcode">Zip Code</label>
+            <p><%= u.getZipcode() %></p>
         </div>
-    </div>
+        
+    </section>
 
     <!-- FOOTER SECTION -->
     <footer>
@@ -76,4 +82,5 @@
         </ul>
     </footer>
 </body>
+
 </html>
