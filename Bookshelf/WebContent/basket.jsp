@@ -40,7 +40,7 @@
                         <li><a href="ClassicsServlet">Classics</a></li>
                     </ul>
                 </li>
-                <li class="cart"><a href="basket.jsp">Basket</a></li>
+                <li class="cart"><a href="#">Basket</a></li>
                 <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>
@@ -81,9 +81,8 @@
             <span class="close-btn" onclick="closePopup('basket')">&times</span>
             <h1>Added to Basket</h1>
             <p>This item has been successfully added to your basket!</p>
-            <form action="CartServlet" method="post" onsubmit="addCart()" id="book-form">
-            	<input type="hidden" id="book-cart" name="book-cart" value="">
-                <input type="submit" value="View Basket">
+            <form action="basket.jsp" method="post">
+            	<input type="submit" value="View Basket">
                 <input type="submit" value="Proceed to Checkout">
             </form>
         </div>

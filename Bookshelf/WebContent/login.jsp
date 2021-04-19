@@ -64,20 +64,6 @@
 
     </section>
 
-    <!-- POPUPS -->
-    <!-- ADD TO BASKET POPUP -->
-    <div class="popup" id="basket">
-        <div class="popup-content">
-            <span class="close-btn">&times</span>
-            <h1>Added to Basket</h1>
-            <p>This item has been successfully added to your basket!</p>
-            <form action="#" class="newsletter">
-                <input type="submit" value="View Basket">
-                <input type="submit" value="Proceed to Checkout">
-            </form>
-        </div>
-    </div>
-
     <!-- FOOTER SECTION -->
     <footer>
         <ul>
