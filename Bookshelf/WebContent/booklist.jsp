@@ -173,9 +173,8 @@
             <span class="close-btn" onclick="closePopup('basket')">&times</span>
             <h1>Added to Basket</h1>
             <p>This item has been successfully added to your basket!</p>
-            <form action="CartServlet" method="post" onsubmit="addCart()" id="book-form">
-            	<input type="hidden" id="book-cart" name="book-cart" value="">
-                <input type="submit" value="View Basket">
+            <form action="basket.jsp" method="post">
+            	<input type="submit" value="View Basket">
                 <input type="submit" value="Proceed to Checkout">
             </form>
         </div>
