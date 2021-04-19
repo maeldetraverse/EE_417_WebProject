@@ -40,6 +40,7 @@ function addtoCart(bookName) {
     temp.push(bookName); 
     sessionStorage.setItem('bookCart', JSON.stringify(temp));
     $("#basket").css("display", "block");
+    console.log(temp);
 }
 
 // add cart to hidden field
