@@ -44,6 +44,7 @@
                 <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>
+                	<li><a href="userinfo.jsp">Account</a>
                 	<li id="login-btn"><a href="LogoutServlet">Logout</a></li>
                 <%} %>
             </ul>

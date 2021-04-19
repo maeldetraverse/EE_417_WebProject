@@ -34,6 +34,7 @@ public class SignupServlet extends HttpServlet {
 				request.getParameter("address_1"),
 				request.getParameter("address_postcode")
 				);
+		request.getSession().setAttribute("user", u);
 		
 		//create manager for cloud database
 		DatabaseManager cloudDB = new DatabaseManager("ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com", "3306", "testdb", "ee417", "ee417");
@@ -54,7 +55,7 @@ public class SignupServlet extends HttpServlet {
 		
 		//call GET with appropriate notification
 		request.setAttribute("notification", notification);
-		doGet(request,response);
+		request.getRequestDispatcher("userinfo.jsp").include(request, response);
 	}
 
 }
