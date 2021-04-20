@@ -56,7 +56,7 @@ public class SignupServlet extends HttpServlet {
 		
 		//call GET with appropriate notification
 		request.setAttribute("notification", notification);
-		request.getRequestDispatcher("userinfo.jsp").include(request, response);
+		doGet(request, response);
 	}
 
 }
