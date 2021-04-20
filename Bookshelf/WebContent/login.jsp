@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/popups.css">
     <link rel="stylesheet" href="css/login.css">
     <script defer src="js/nav.js"></script>
+    <script defer src="js/index.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
 

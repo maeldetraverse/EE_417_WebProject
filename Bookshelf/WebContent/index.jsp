@@ -16,6 +16,11 @@
     <script defer src="js/nav.js"></script>
     <script defer src="js/index.js"></script>
     <title>BookShelf | Buy Books Online</title>
+    <script>
+    setTimeout(function () {
+        openNewsletterPopup();
+    }, 2000);
+    </script>
 </head>
 
 <body>

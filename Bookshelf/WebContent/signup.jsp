@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
+    <script defer src="js/index.js"></script>
     <script defer src="js/signup.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>

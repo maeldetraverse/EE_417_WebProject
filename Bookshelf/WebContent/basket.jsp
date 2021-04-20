@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
+    <script defer src="js/index.js"></script>
     <script defer src="js/basket-display.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
@@ -40,7 +41,7 @@
                         <li><a href="ClassicsServlet">Classics</a></li>
                     </ul>
                 </li>
-                <li class="cart"><a href="#">Basket</a></li>
+                <li class="cart"><a href="basket.jsp">Basket</a></li>
                 <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>

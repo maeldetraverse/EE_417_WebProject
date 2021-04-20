@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/base-mobile.css">
     <link rel="stylesheet" href="css/popups.css">
     <script defer src="js/nav.js"></script>
+    <script defer src="js/index.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
 
@@ -44,7 +45,6 @@
                 	<li id="login-btn"><a href="LogoutServlet">Logout</a></li>
                 <%} %>
             </ul>
-        </nav>
         </nav>
     </header>
 
