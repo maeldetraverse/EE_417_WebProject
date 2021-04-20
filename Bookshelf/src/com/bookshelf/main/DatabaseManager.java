@@ -58,6 +58,7 @@ public class DatabaseManager {
 			}
 			else {
 				return new User(
+						(rs.getInt("id")),
 						(rs.getString("username")==null) ? "" : rs.getString("username"),
 						(rs.getString("password")==null) ? "" : rs.getString("password"),
 						(rs.getString("first_name")==null) ? "" : rs.getString("first_name"),
@@ -70,7 +71,7 @@ public class DatabaseManager {
 		}
 	}
 	
-	//inserts user into database
+	//inserts a new user into user
 	public void setUser(User newUser) throws SQLException{
 		
 		//construct sql query
@@ -105,20 +106,83 @@ public class DatabaseManager {
 		return null;
 	}
 	
-	//returns database id for a given user - success returns id - failure returns -1
-	public int getUserID(User u) throws SQLException {
+	//get book from id - success returns book - failure returns null
+	public Book getBook(int id) throws SQLException {
+			
+			//construct sql query
+			//username is unique so query should return either a single result or zero
+			String query = "SELECT * FROM " + schema + ".bookshelf_book WHERE id = " + id;
+			
+			//try with resources
+			try(Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery(query);) {
+				
+				//if resultSet is empty - return null
+				//else return first result - null fields return empty strings
+				if(rs.next()==false) {
+					return null;
+				}
+				else {
+					return new Book(
+							(rs.getInt("id")),
+							(rs.getString("title")==null) ? "" : rs.getString("title"),
+							(rs.getString("author")==null) ? "" : rs.getString("author"),
+							(rs.getString("description")==null) ? "" : rs.getString("description"),
+							(rs.getString("category")==null) ? "" : rs.getString("category"),
+							(rs.getString("publisher")==null) ? "" : rs.getString("publisher"),
+							(rs.getFloat("rating")),
+							(rs.getFloat("price")),
+							(rs.getString("thumbnail_url")==null) ? "" : rs.getString("thumbnail_url"),
+							(rs.getInt("stock"))
+							);
+				}
+			}
+		}
+	
+	//inserts a new record into order
+	public void createOrder(int userID, Book[] books) throws SQLException {
+		
+		//get total value of order
+		float total = 0;	
+		for(int i=0; i<books.length; i++) {
+			total += books[i].getPrice();
+		}
 		
 		//construct sql query
-		//username is unique so query should return either a single result or zero
-		String query = "SELECT * FROM " + schema + ".bookshelf_user WHERE username = " + "\"" + u.getUsername() + "\"";
+		String query = "INSERT INTO " + schema + 
+				".bookshelf_order(user_id,t_stamp,amount) VALUES (?,?,?)";
+		
+		//try with resources
+		try(Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);
+			PreparedStatement pstmt = con.prepareStatement(query);) {
+        	
+        	//set parameters - blank string is null
+        	pstmt.clearParameters();
+    		pstmt.setInt(1, userID);
+    		pstmt.setTimestamp(2, new Timestamp(new java.util.Date().getTime()));
+    		pstmt.setFloat(3, total);
+    		
+    		//execute prepareStatement
+    		pstmt.executeUpdate();
+    		
+		}
+		
+	}
+
+	//returns the id of the most recent record in the order table
+	public int getLastOrderID() throws SQLException {
+		
+		//construct sql query
+		String query = "SELECT * FROM " + schema + ".bookshelf_order ORDER BY id DESC Limit 1";
 		
 		//try with resources
 		try(Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);) {
-			
-			//if resultSet is empty - return -1
-			//else return id from first result
+    		
+    		//if resultSet is empty - return -1
+			//else return id of last inserted row
 			if(rs.next()==false) {
 				return -1;
 			}
@@ -128,4 +192,30 @@ public class DatabaseManager {
 		}
 	}
 	
+	//inserts a record into order_line for each book in the order
+	public void createOrderLines(int orderID, Book[] books) throws SQLException {
+		
+		//construct sql query
+		String query = "INSERT INTO " + schema + 
+				".bookshelf_order_line(order_id,order_line_number,book_id,quantity) VALUES (?,?,?,?)";
+		
+		//try with resources
+		try(Connection con = DriverManager.getConnection(url, dbUsername, dbPassword);) {
+			
+			for(int i=0; i<books.length; i++) {
+				try(PreparedStatement pstmt = con.prepareStatement(query);) {
+					//set parameters - blank string is null
+		        	pstmt.clearParameters();
+		    		pstmt.setInt(1, orderID);
+		    		pstmt.setInt(2, i+1);
+		    		pstmt.setInt(3, books[i].getId());
+		    		pstmt.setInt(4, 1);
+		    		
+		    		//execute prepareStatement
+		    		pstmt.executeUpdate();
+				}
+			}
+		}
+	}
+
 }
