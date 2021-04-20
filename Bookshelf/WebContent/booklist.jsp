@@ -175,7 +175,6 @@
             <p>This item has been successfully added to your basket!</p>
             <form action="basket.jsp" method="post">
             	<input type="submit" value="View Basket">
-                <input type="submit" value="Proceed to Checkout">
             </form>
         </div>
     </div>
