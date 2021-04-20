@@ -13,13 +13,12 @@ Current Development Tasks
   - [ ] Get some decent database data
   - [ ] Style bookview page
 - [ ] Shopping cart
-  - [ ] Get JSON data from "add to cart" button (servlet/Javascript)
-  - [ ] Store JSON data in local storage (Javascript)
+  - [x] Get JSON data from "add to cart" button (servlet/Javascript)
+  - [x] Store JSON data in local storage (Javascript)
 - [ ] Checkout
-  - [ ]  Display JSON data from local storage
-  - [ ]  Use JSON data to create an order
+  - [x]  Display JSON data from local storage
+  - [x]  Use JSON data to create an order
   - [ ]  Style checkout page
 - [ ] Profile page
-  - [ ] Display user information in JSP page
+  - [x] Display user information in JSP page
   - [ ] Display user order information in JSP page
-  - [ ] Might be possible even if we don't get the actual order system working
