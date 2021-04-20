@@ -34,4 +34,25 @@ $(document).ready(function(){
 		location.reload()
 	});
 	
+	//create hidden form
+	//session data goes into this hidden form and is passed to servlet at checkout
+	var form = $("<form></form>");
+	form.attr("id","basketDataForm")
+	
+	var basketData = $("<input>");
+	basketData.attr("type","hidden");
+	basketData.attr("name","basketData");
+	basketData.attr("value",sessionStorage.basket);
+	
+	form.append(basketData);
+	$("body").append(form);
+	
+	//form is invisible but submit button is added to main-content
+	var button = $("<button>Proceed to checkout</button>");
+	button.attr("type","submit");
+	button.attr("formmethod","post");
+	button.attr("form","basketDataForm");
+	button.attr("formaction","CheckoutServlet");
+	$(".main-content").append(button);
+	
 });

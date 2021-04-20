@@ -26,6 +26,7 @@ public class SignupServlet extends HttpServlet {
 		
 		//create user from request data
 		User u = new User(
+				-1,
 				request.getParameter("username"),
 				request.getParameter("password"),
 				request.getParameter("first_name"),

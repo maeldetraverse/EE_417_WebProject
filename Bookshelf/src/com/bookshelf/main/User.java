@@ -2,6 +2,7 @@ package com.bookshelf.main;
 
 public class User {
 	
+	private int id;
 	private String username;
 	private String password;
 	private String firstName;
@@ -10,7 +11,8 @@ public class User {
 	private String address;
 	private String zipcode;
 	
-	public User( String username,
+	public User( int id,
+			String username,
 			String password,
 			String firstName,
 			String lastName,
@@ -19,6 +21,7 @@ public class User {
 			String zipcode) {
 		
 		super();
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
@@ -26,6 +29,14 @@ public class User {
 		this.email = email;
 		this.address = address;
 		this.zipcode = zipcode;
+	}
+	
+	//id
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	//username
