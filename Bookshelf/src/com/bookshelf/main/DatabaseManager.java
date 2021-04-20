@@ -170,7 +170,7 @@ public class DatabaseManager {
 		
 	}
 
-	//returns the id of the most recent record in the order table
+	//returns the id of the most recent record in the order table - failure returns -1
 	public int getLastOrderID() throws SQLException {
 		
 		//construct sql query
@@ -191,7 +191,7 @@ public class DatabaseManager {
 			}
 		}
 	}
-	
+
 	//inserts a record into order_line for each book in the order
 	public void createOrderLines(int orderID, Book[] books) throws SQLException {
 		

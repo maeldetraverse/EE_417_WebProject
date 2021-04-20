@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,6 +55,8 @@
 	<% User u = (User) session.getAttribute("user"); %>
     <!-- MAIN CONTENT OF PAGE -->
     <section class="container">
+    
+    	<!-- USER DETAILS -->
         <div class="signup-form">
             <h1>Welcome to your Account</h1>
             <label for="username">Username</label>
@@ -71,8 +78,44 @@
             <p><%= u.getZipcode() %></p>
         </div>
         
+        <!-- ORDER HISTORY -->
+        <!-- datasource -->
+        <h1>My recent orders</h1>
+		<sql:setDataSource
+			var = "snapshot"
+			driver = "com.mysql.jdbc.Driver"
+			url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
+			user = "ee417"
+			password = "ee417"
+		/>
+		
+		<!-- query -->
+		<sql:query dataSource = "${snapshot}" var = "result">
+			SELECT id, t_stamp, amount
+			FROM testdb.bookshelf_order
+			WHERE user_id = ${user.getId()}
+			ORDER BY t_stamp DESC
+			LIMIT 10
+		</sql:query>
+		
+		<!-- display results -->
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Date</th>
+				<th>Total Amount</th>
+			</tr>
+			<c:forEach var = "row" items = "${result.rows}">
+				<tr>
+					<td><c:out value = "${row.id}"/></td>
+					<td><c:out value = "${row.t_stamp}"/></td>
+					<td><c:out value = "${row.amount}"/></td>
+				</tr>
+			</c:forEach>
+		</table>
+        
     </section>
-
+    
     <!-- FOOTER SECTION -->
     <footer>
         <ul>
