@@ -29,7 +29,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="BestsellersServlet">Bestsellers</a></li>
-                <li><a href="NonfictionServlet">Nonfiction</a>
+                <li><a href="NovelServlet">Novels</a>
                 </li>
                 <li><a href="#">Fiction</a>
                     <ul>

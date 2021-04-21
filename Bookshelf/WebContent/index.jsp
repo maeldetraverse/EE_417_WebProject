@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
     <script defer src="js/index.js"></script>
+    <script src="js/basket-add.js"></script>
     <title>BookShelf | Buy Books Online</title>
     <script>
     setTimeout(function () {
@@ -37,7 +38,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="BestsellersServlet">Bestsellers</a></li>
-                <li><a href="NonfictionServlet">Nonfiction</a>
+                <li><a href="NovelServlet">Novels</a>
                 </li>
                 <li><a href="#">Fiction</a>
                     <ul>
@@ -61,48 +62,78 @@
         <h1>Best Sellers</h1>
         <div class="container">
             <figure class="book-container">
-                <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0995/9780099518945.jpg">
-                <p>Alexandre Dumas</p>
-                <p>&#x80 9.99</p>
+                <img src="https://images.gr-assets.com/books/1361975680m/2657.jpg">
+                <p>Harper Lee</p>
+                <p>&#x80 11.46</p>
                 <a href="#">View</a>
-                <button class="add-to-basket" onclick="addtoCart(bookObject[0])"><i class="fa fa-shopping-cart"></i>
-                </button>
+                <button data-id="4"
+	                data-title="To Kill a Mockingbird"
+	                data-price="11.46"
+	                data-thumbnail-url="https://images.gr-assets.com/books/1361975680m/2657.jpg"
+	                data-stock="487"
+	                class="basket-add-button">
+					<i class="fa fa-shopping-cart"></i>
+				</button>
             </figure>
 
             <figure class="book-container">
-                <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4104/9781410499257.jpg">
+                <img src="https://images.gr-assets.com/books/1353029077m/100915.jpg">
                 <p>C.S. Lewis</p>
-                <p>&#x80 8.50</p>
+                <p>&#x80 29.75</p>
                 <a href="#">View</a>
-                <button class="add-to-basket" onclick="addtoCart(bookObject[1])"><i class="fa fa-shopping-cart"></i>
-                </button>
+                <button data-id="37"
+	                data-title="The Lion, the Witch, and the Wardrobe"
+	                data-price="29.75"
+	                data-thumbnail-url="https://images.gr-assets.com/books/1353029077m/100915.jpg"
+	                data-stock="474"
+	                class="basket-add-button">
+					<i class="fa fa-shopping-cart"></i>
+				</button>
             </figure>
 
             <figure class="book-container">
-                <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/3939/9780393960693.jpg">
+                <img src="https://images.gr-assets.com/books/1344922523m/1953.jpg">
                 <p>Charles Dickens</p>
-                <p>&#x80 11.60</p>
+                <p>&#x80 8.83</p>
                 <a href="#">View</a>
-                <button class="add-to-basket" onclick="addtoCart(bookObject[2])"><i class="fa fa-shopping-cart"></i>
-                </button>
+                <button data-id="83"
+	                data-title="A Tale of Two Cities"
+	                data-price="8.83"
+	                data-thumbnail-url="https://images.gr-assets.com/books/1344922523m/1953.jpg"
+	                data-stock="525"
+	                class="basket-add-button">
+					<i class="fa fa-shopping-cart"></i>
+				</button>
             </figure>
 
             <figure class="book-container">
-                <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/8532/9781853260001.jpg">
+                <img src="https://images.gr-assets.com/books/1320399351m/1885.jpg">
                 <p>Jane Austen</p>
-                <p>&#x80 7.50</p>
+                <p>&#x80 25.44</p>
                 <a href="#">View</a>
-                <button class="add-to-basket" onclick="addtoCart(bookObject[3])"><i class="fa fa-shopping-cart"></i>
-                </button>
+                <button data-id="10"
+	                data-title="Pride and Prejudice"
+	                data-price="25.44"
+	                data-thumbnail-url="https://images.gr-assets.com/books/1320399351m/1885.jpg"
+	                data-stock="3455"
+	                class="basket-add-button">
+					<i class="fa fa-shopping-cart"></i>
+				</button>
             </figure>
 
             <figure class="book-container">
-                <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/1414/9780141439495.jpg">
-                <p>Jonathan Swift</p>
-                <p>&#x80 4.99</p>
+                <img src="https://images.gr-assets.com/books/1499277281m/5.jpg">
+                <p>J.K. Rowling</p>
+                <p>&#x80 23.99</p>
                 <a href="#">View</a>
-                <button class="add-to-basket" onclick="addtoCart(bookObject[4])"><i class="fa fa-shopping-cart"></i>
-                </button>
+                <button data-id="18"
+	                data-title="Harry Potter and the Prisoner of Azkaban"
+	                data-price="23.99"
+	                data-thumbnail-url="https://images.gr-assets.com/books/1499277281m/5.jpg"
+	                data-stock="376"
+	                class="basket-add-button">
+					<i class="fa fa-shopping-cart"></i>
+				</button>
             </figure>
 
         </div>

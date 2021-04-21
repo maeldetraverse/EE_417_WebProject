@@ -40,7 +40,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="BestsellersServlet">Bestsellers</a></li>
-                <li><a href="NonfictionServlet">Nonfiction</a>
+                <li><a href="NovelServlet">Novels</a>
                 </li>
                 <li><a href="#">Fiction</a>
                     <ul>
@@ -68,7 +68,11 @@
         	<form action="BookListServlet" method="POST">
 				<label>Category</label>
 				<select name="category">
-					<option value="">Any</option>
+					<option value="" <c:if test = "${category == \"\"}">selected</c:if>>Any</option>
+					<option value="classics" <c:if test = "${category == \"classics\"}">selected</c:if>>Classics</option>
+					<option value="childrens" <c:if test = "${category == \"childrens\"}">selected</c:if>>Childrens</option>
+					<option value="novel" <c:if test = "${category == \"novel\"}">selected</c:if>>Novel</option>
+					<option value="nonfiction" <c:if test = "${category == \"nonfiction\"}">selected</c:if>>Non-fiction</option>
 				</select>
 				<label>Publisher</label>
 				<select name="publisher">
@@ -110,28 +114,25 @@
 			<!-- display results -->
 			<table>
 					<tr>
-						<th>ID</th>
+						
 						<th>Title</th>
 						<th>Author</th>
-						<th>Description</th>
 						<th>Category</th>
-						<th>Publisher</th>
 						<th>Rating</th>
-						<th>Price</th>
 						<th>Thumbnail</th>
+						<th>Price</th>
 						<th>In Stock</th>
+						<th>Add to cart</th>
 					</tr>
 					<c:forEach var = "row" items = "${result.rows}">
 						<tr>
-							<td><c:out value = "${row.id}"/></td>
+							
 							<td><c:out value = "${row.title}"/></td>
 							<td><c:out value = "${row.author}"/></td>
-							<td><c:out value = "${row.description}"/></td>
 							<td><c:out value = "${row.category}"/></td>
-							<td><c:out value = "${row.publisher}"/></td>
 							<td><c:out value = "${row.rating}"/></td>
-							<td><c:out value = "${row.price}"/></td>
 							<td><img src= <c:out value = "${row.thumbnail_url}"/>></td>
+							<td> &#x80 <c:out value = "${row.price}"/></td>
 							<td><c:out value = "${row.stock}"/></td>
 							<td>
 								<!-- Add to cart button -->
@@ -143,7 +144,7 @@
 								data-thumbnail-url="${row.thumbnail_url}"
 								data-stock="${row.stock}"
 								class="basket-add-button">
-								<i class="fa fa-cart-plus"></i>
+								<i class="fa fa-shopping-cart"></i>
 								</button>
 							</td>
 						</tr>
@@ -175,6 +176,7 @@
             <p>This item has been successfully added to your basket!</p>
             <form action="basket.jsp" method="post">
             	<input type="submit" value="View Basket">
+                <input type="submit" value="Proceed to Checkout">
             </form>
         </div>
     </div>

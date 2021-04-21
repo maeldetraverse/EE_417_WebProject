@@ -38,7 +38,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="BestsellersServlet">Bestsellers</a></li>
-                <li><a href="NonfictionServlet">Nonfiction</a>
+                <li><a href="NovelServlet">Novels</a>
                 </li>
                 <li><a href="#">Fiction</a>
                     <ul>
@@ -84,40 +84,43 @@
         </div>
         
         <!-- ORDER HISTORY -->
-        <!-- datasource -->
-        <h1>My recent orders</h1>
-		<sql:setDataSource
-			var = "snapshot"
-			driver = "com.mysql.jdbc.Driver"
-			url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
-			user = "ee417"
-			password = "ee417"
-		/>
-		
-		<!-- query -->
-		<sql:query dataSource = "${snapshot}" var = "result">
-			SELECT id, t_stamp, amount
-			FROM testdb.bookshelf_order
-			WHERE user_id = ${user.getId()}
-			ORDER BY t_stamp DESC
-			LIMIT 10
-		</sql:query>
-		
-		<!-- display results -->
-		<table>
-			<tr>
-				<th>ID</th>
-				<th>Date</th>
-				<th>Total Amount</th>
-			</tr>
-			<c:forEach var = "row" items = "${result.rows}">
+        <div class="order-details">
+        
+	        <!-- datasource -->
+	        <h1>My recent orders</h1>
+			<sql:setDataSource
+				var = "snapshot"
+				driver = "com.mysql.jdbc.Driver"
+				url = "jdbc:mysql://ee417.crxkzf89o3fh.eu-west-1.rds.amazonaws.com:3306/testdb"
+				user = "ee417"
+				password = "ee417"
+			/>
+			
+			<!-- query -->
+			<sql:query dataSource = "${snapshot}" var = "result">
+				SELECT id, t_stamp, amount
+				FROM testdb.bookshelf_order
+				WHERE user_id = ${user.getId()}
+				ORDER BY t_stamp DESC
+				LIMIT 10
+			</sql:query>
+			
+			<!-- display results -->
+			<table>
 				<tr>
-					<td><c:out value = "${row.id}"/></td>
-					<td><c:out value = "${row.t_stamp}"/></td>
-					<td><c:out value = "${row.amount}"/></td>
+					<th>ID</th>
+					<th>Date</th>
+					<th>Total Amount</th>
 				</tr>
-			</c:forEach>
-		</table>
+				<c:forEach var = "row" items = "${result.rows}">
+					<tr>
+						<td><c:out value = "${row.id}"/></td>
+						<td><c:out value = "${row.t_stamp}"/></td>
+						<td><c:out value = "${row.amount}"/></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
         
     </section>
     

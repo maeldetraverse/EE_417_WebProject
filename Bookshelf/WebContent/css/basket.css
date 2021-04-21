@@ -80,5 +80,11 @@
 }
 
 table, th, td {
-  	border: 1px solid black;
+  border: 1px solid black;
+}
+
+#my-basket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -33,7 +33,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="BestsellersServlet">Bestsellers</a></li>
-                <li><a href="NonfictionServlet">Nonfiction</a>
+                <li><a href="NovelServlet">Novels</a>
                 </li>
                 <li><a href="#">Fiction</a>
                     <ul>
@@ -55,8 +55,19 @@
     <!-- MAIN CONTENT OF PAGE -->
     <section class="main-content">
     
-    	<!-- Books populated dynamically -->
     	
+    	<h1>My Basket</h1>
+    	
+    	<div id="my-basket">
+    		<!-- Table goes here -->
+    	</div>
+    	
+    	<button id="empty-button">Empty Basket</button>
+    	
+    	<form id="basketDataForm" method="post" action="CheckoutServlet">
+    		<input id="basketData" name="basketData" type="hidden">
+    		<input type="submit" value="Proceed to checkout">
+    	</form>
     	
     	
     </section>

@@ -129,3 +129,18 @@ body{
 .failure{
 	border: 5px solid red;
 }
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+table{
+	margin-left: 200px;
+	width: 400px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}

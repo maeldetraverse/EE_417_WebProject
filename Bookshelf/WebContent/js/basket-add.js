@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	
 	$(".basket-add-button").click(function(){
+		
+		console.log("add to basket");
     	
 		//assemble JSON string from attributes
     	var text = '{' +

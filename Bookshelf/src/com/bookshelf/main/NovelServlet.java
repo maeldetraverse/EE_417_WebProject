@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/NonfictionServlet")
-public class NonfictionServlet extends HttpServlet {
+@WebServlet("/NovelServlet")
+public class NovelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	//GET response - return booklist page with "bestseller" parameters
+	//GET response - return booklist page with "novel" parameters
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	//set list title
-    	request.setAttribute("listTitle", "Non-fiction");
+    	request.setAttribute("listTitle", "Novels");
     	
-    	//set "non-fiction" query parameters
-    	request.setAttribute("category", "non-fiction");
+    	//set "classics" query parameters
+    	request.setAttribute("category", "novel");
     	request.setAttribute("publisher", "");
     	request.setAttribute("order", "rating");
     	request.setAttribute("direction", "DESC");
