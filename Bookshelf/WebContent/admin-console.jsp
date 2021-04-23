@@ -6,13 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="fa fa-book"/>
+    <link rel="shortcut icon" type="image/x-icon" href="fa fa-book" />
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/base-mobile.css">
+    <link rel="stylesheet" href="css/basket.css">
     <link rel="stylesheet" href="css/popups.css">
-    <link rel="stylesheet" href="css/login.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script defer src="js/nav.js"></script>
     <script defer src="js/index.js"></script>
+    <script defer src="js/basket-display.js"></script>
     <title>BookShelf | Buy Books Online</title>
 </head>
 
@@ -20,8 +23,8 @@
 
     <!-- HEADER AND NAVIGATION -->
     <header>
-        <div class="logo"><i class="fa fa-book"></i>  BookShelf</div>
-        <button class="mobile-btn">
+    	<div class="logo"><i class="fa fa-book"></i> BookShelf</div>
+    	<button class="mobile-btn">
             <span></span>
             <span></span>
             <span></span>
@@ -71,21 +74,44 @@
     </header>
 
     <!-- MAIN CONTENT OF PAGE -->
-    <section class="form-container">
-
-        <img src="images/books-image.svg" id="image"> <!-- Free SVG images -->
-        <form action="LoginServlet" class="login-form" method="POST">
-            <h1>Sign-in to your Account</h1>
-            <div><i class="fa fa-user"></i><input type="text" name="username" id="username" placeholder="Username"></div>
-            <div><i class="fa fa-lock"></i><input type="password" name="password" id="password" placeholder="Password"></div>
-            <input type="submit" value="Login">
-            <div>Don't have an account?<a href="SignupServlet">Sign-Up</a></div>
-        </form>
-        
-        <!-- SUCCESS/FAIL NOTIFICATION -->
-        ${notification}
-
+    <section class="main-content">
+    
+    	
+    	<div id="admin-console">
+    		<h1>Admin-Console</h1>
+    		Hello ${user.firstName}
+    	</div>
+    	
+    	
     </section>
+
+
+    <!-- POPUPS -->
+    <!-- NEWSLETTER POPUP -->
+    <div class="popup" id="newsletter">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('newsletter')">&times</span>
+            <h1>Newsletter</h1>
+            <p>Subscribe to our newsletter to get 10% off your first order!</p>
+            <form action="#" method="POST">
+                <input type="email" name="email" id="email" placeholder="Enter your email...">
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+
+    <!-- ADD TO BASKET POPUP -->
+    <div class="popup" id="basket">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('basket')">&times</span>
+            <h1>Added to Basket</h1>
+            <p>This item has been successfully added to your basket!</p>
+            <form action="basket.jsp" method="post">
+            	<input type="submit" value="View Basket">
+                <input type="submit" value="Proceed to Checkout">
+            </form>
+        </div>
+    </div>
 
     <!-- FOOTER SECTION -->
     <footer>
@@ -95,5 +121,7 @@
             <li>April 2021</li>
         </ul>
     </footer>
+
 </body>
+
 </html>

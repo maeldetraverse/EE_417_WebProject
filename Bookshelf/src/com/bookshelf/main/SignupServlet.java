@@ -33,7 +33,8 @@ public class SignupServlet extends HttpServlet {
 				request.getParameter("last_name"),
 				request.getParameter("email"),
 				request.getParameter("address_1"),
-				request.getParameter("address_postcode")
+				request.getParameter("address_postcode"),
+				new String[0]
 				);
 		request.getSession().setAttribute("user", u);
 		

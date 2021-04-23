@@ -47,6 +47,27 @@
                     </ul>
                 </li>
                 <li class="cart"><a href="basket.jsp">Basket</a></li>
+                
+                <!-- Admin Console -->
+                <%@ page import="com.bookshelf.main.User" %>
+                <%
+	                User u = (User) session.getAttribute("user");
+                	session.setAttribute("displayAdminConsole", false);
+	                if(u!=null){
+	                	String[] roles = u.getRoles();
+	                	for(int i=0; i<roles.length; i++){
+	                		if(roles[i].equals("admin") || roles[i].equals("engineer")) {
+	                        	session.setAttribute("displayAdminConsole", true);
+	                        }
+	                	}
+	                }
+                %>
+                <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+                <c:if test="${sessionScope.displayAdminConsole == true}">
+			    	<li><a href="admin-console.jsp">Admin</a></li>
+				</c:if>
+                
+                <!-- Login/logout button -->
                 <% if(session.getAttribute("user")==null) { %>
                 	<li id="login-btn"><a href="LoginServlet">Login</a></li>
                 <% } else { %>

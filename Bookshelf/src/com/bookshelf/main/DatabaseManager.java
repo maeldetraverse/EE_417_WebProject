@@ -65,7 +65,8 @@ public class DatabaseManager {
 						(rs.getString("last_name")==null) ? "" : rs.getString("last_name"),
 						(rs.getString("email")==null) ? "" : rs.getString("email"),
 						(rs.getString("address")==null) ? "" : rs.getString("address"),
-						(rs.getString("zipcode")==null) ? "" : rs.getString("zipcode")
+						(rs.getString("zipcode")==null) ? "" : rs.getString("zipcode"),
+						(rs.getString("roles")==null) ? new String[0] : rs.getString("roles").split(",")
 						);
 			}
 		}
