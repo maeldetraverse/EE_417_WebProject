@@ -8,6 +8,7 @@ last_name VARCHAR(45),
 email VARCHAR(45) NOT NULL,
 address VARCHAR(100),
 zipcode VARCHAR(45),
+roles VARCHAR(255),
 
 PRIMARY KEY (id),
 
@@ -63,13 +64,13 @@ UNIQUE (id)
 );
 
 INSERT INTO testdb.bookshelf_user
-(id,username,password,first_name,last_name,email,address,zipcode)
+(id,username,password,first_name,last_name,email,address,zipcode,roles)
 VALUES
-(1,'jamesc10','password','James','Conlon','james@mail.com','Dublin','DRB4G32'),
-(2,'keatonc16','pass1','Michael','Keaton','mkeaton@gmail.com','Hollywood','BAT3249'),
-(3,'tjones','mypass','Tom','Jones','tom@tomjones.com','Wales','302AM12'),
-(4,'markymark','password1','Mark','Wahlberg','mark@wahlberg.com','Bawston','H56GD49'),
-(5,'marymac','abcdefg','Mary','McAleese','mary@gov.ie','Belfast','901QBR6');
+(1,'jamesc10','password','James','Conlon','james@mail.com','Dublin','DRB4G32','engineer'),
+(2,'keatonc16','pass1','Michael','Keaton','mkeaton@gmail.com','Hollywood','BAT3249',''),
+(3,'tjones','mypass','Tom','Jones','tom@tomjones.com','Wales','302AM12','engineer'),
+(4,'markymark','password1','Mark','Wahlberg','mark@wahlberg.com','Bawston','H56GD49','supervisor'),
+(5,'marymac','abcdefg','Mary','McAleese','mary@gov.ie','Belfast','901QBR6','admin,supervisor');
 
 INSERT INTO testdb.bookshelf_book
 (id,title,author,description,category,publisher,rating,price,thumbnail_url,stock)
