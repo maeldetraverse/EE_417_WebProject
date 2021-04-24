@@ -10,6 +10,7 @@ public class User {
 	private String email;
 	private String address;
 	private String zipcode;
+	private String[] roles;
 	
 	public User( int id,
 			String username,
@@ -18,7 +19,8 @@ public class User {
 			String lastName,
 			String email,
 			String address,
-			String zipcode) {
+			String zipcode,
+			String[] roles) {
 		
 		super();
 		this.id = id;
@@ -29,6 +31,7 @@ public class User {
 		this.email = email;
 		this.address = address;
 		this.zipcode = zipcode;
+		this.roles = roles;
 	}
 	
 	//id
@@ -94,5 +97,13 @@ public class User {
 	public void setZipcode(String zipcode) {
 	    this.zipcode = zipcode;
 	}
-
+	
+	//roles
+	public String[] getRoles() {
+	    return roles;
+	}
+	public void setRoles(String[] roles) {
+	    this.roles = roles;
+	}
+	
 }
